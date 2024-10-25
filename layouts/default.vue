@@ -1,76 +1,650 @@
 <script lang="ts" setup>
+const setTheme = (theme: string) => {
+  document.documentElement.setAttribute('data-theme', theme)
+}
 </script>
 
 <template>
   <div class="flex flex-col min-h-screen">
-
-    <header class="shadow-xl">
-      <nav>
-        <div class="navbar bg-base-100">
-          <div class="navbar-start">
-            <div class="dropdown">
-              <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor">
-                  <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M4 6h16M4 12h16M4 18h7"/>
-                </svg>
-              </div>
-              <ul
-                  tabindex="0"
-                  class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                <li><a>Homepage</a></li>
-                <li><a>Portfolio</a></li>
-                <li><a>About</a></li>
+    <div class="navbar bg-base-100">
+      <div class="navbar-start">
+        <div class="dropdown">
+          <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
+              <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h8m-8 6h16"/>
+            </svg>
+          </div>
+          <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+            <li><a>Item 1</a></li>
+            <li>
+              <a>Parent</a>
+              <ul class="p-2">
+                <li><a>Submenu 1</a></li>
+                <li><a>Submenu 2</a></li>
               </ul>
-            </div>
-          </div>
-          <div class="navbar-center">
-            <a class="btn btn-ghost text-xl">Website template</a>
-          </div>
-          <div class="navbar-end">
-            <button class="btn btn-ghost btn-circle">
-              <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor">
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-              </svg>
-            </button>
-            <button class="btn btn-ghost btn-circle">
-              <div class="indicator">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor">
-                  <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
-                </svg>
-                <span class="badge badge-xs badge-primary indicator-item"></span>
-              </div>
-            </button>
+            </li>
+            <li><a>Item 3</a></li>
+          </ul>
+        </div>
+        <div class="avatar">
+          <div class="mask mask-hexagon w-12">
+            <img
+                src="https://media.istockphoto.com/id/851887036/vector/colorful-icon.jpg?s=612x612&w=0&k=20&c=a8kAIu0ZX6QnS99I8nQFMkTFlVYqFCnsugm54q-WX_s="/>
           </div>
         </div>
-      </nav>
-    </header>
+        <a class="btn btn-ghost text-xl">Website Template</a>
+      </div>
+      <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal px-1">
+          <li><a>About Us</a></li>
+          <li><a>Services</a></li>
+          <li><a>Products</a></li>
+          <li><a>Blog</a></li>
+          <li><a>FAQ</a></li>
+          <li><a>Contact</a></li>
+
+        </ul>
+      </div>
+      <div class="navbar-end">
+        <div class="dropdown dropdown-bottom dropdown-end ">
+          <div tabindex="0" role="button" class="btn m-1">Theme Select</div>
+          <ul tabindex="0"
+              class="dropdown-content menu bg-base-100 rounded-box z-[1] p-4 shadow max-h-96 overflow-y-auto flex flex-row w-72 gap-2">
+            <li data-theme="light" class="text-primary w-full" @click="setTheme('light')">
+              <div>
+                <span class="text-base">Light</span>
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="dark" class="text-primary w-full" @click="setTheme('dark')">
+              <div>
+                <span class="text-base">Dark</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="cupcake" class="text-primary w-full" @click="setTheme('cupcake')">
+              <div>
+                <span class="text-base">Cupcake</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="bumblebee" class="text-primary w-full" @click="setTheme('bumblebee')">
+              <div>
+                <span class="text-base">Bumblebee</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="emerald" class="text-primary w-full" @click="setTheme('emerald')">
+              <div>
+                <span class="text-base">Emerald</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="corporate" class="text-primary w-full" @click="setTheme('corporate')">
+              <div>
+                <span class="text-base">Corporate</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="synthwave" class="text-primary w-full" @click="setTheme('synthwave')">
+              <div>
+                <span class="text-base">Synthwave</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="retro" class="text-primary w-full" @click="setTheme('retro')">
+              <div>
+                <span class="text-base">Retro</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="cyberpunk" class="text-primary w-full"  @click="setTheme('cyberpunk')">
+              <div>
+                <span class="text-base">Cyberpunk</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="valentine" class="text-primary w-full" @click="setTheme('valentine')">
+              <div>
+                <span class="text-base">Valentine</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="halloween" class="text-primary w-full" @click="setTheme('halloween')">
+              <div>
+                <span class="text-base">Halloween</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="garden" class="text-primary w-full" @click="setTheme('garden')">
+              <div>
+                <span class="text-base">Garden</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="forest" class="text-primary w-full" @click="setTheme('forest')">
+              <div>
+                <span class="text-base">Forest</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="aqua" class="text-primary w-full" @click="setTheme('aqua')">
+              <div>
+                <span class="text-base">Aqua</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="lofi" class="text-primary w-full" @click="setTheme('lofi')">
+              <div>
+                <span class="text-base">LoFi</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="pastel" class="text-primary w-full" @click="setTheme('pastel')">
+              <div>
+                <span class="text-base">Pastel</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="fantasy" class="text-primary w-full" @click="setTheme('fantasy')">
+              <div>
+                <span class="text-base">Fantasy</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="wireframe" class="text-primary w-full" @click="setTheme('wireframe')">
+              <div>
+                <span class="text-base">Wireframe</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="black" class="text-primary w-full" @click="setTheme('black')">
+              <div>
+                <span class="text-base">Black</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="luxury" class="text-primary w-full" @click="setTheme('luxury')">
+              <div>
+                <span class="text-base">Luxury</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="dracula" class="text-primary w-full" @click="setTheme('dracula')">
+              <div>
+                <span class="text-base">Dracula</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="cmyk" class="text-primary w-full" @click="setTheme('cmyk')">
+              <div>
+                <span class="text-base">Cmyk</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="autumn" class="text-primary w-full" @click="setTheme('autumn')">
+              <div>
+                <span class="text-base">Autumn</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="business" class="text-primary w-full" @click="setTheme('business')">
+              <div>
+                <span class="text-base">Business</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="acid" class="text-primary w-full" @click="setTheme('acid')">
+              <div>
+                <span class="text-base">Acid</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="lemonade" class="text-primary w-full" @click="setTheme('lemonade')">
+              <div>
+                <span class="text-base">Lemonade</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="night" class="text-primary w-full" @click="setTheme('night')">
+              <div>
+                <span class="text-base">Night</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="coffee" class="text-primary w-full" @click="setTheme('coffee')">
+              <div>
+                <span class="text-base">Coffee</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="winter" class="text-primary w-full" @click="setTheme('winter')">
+              <div>
+                <span class="text-base">Winter</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="dim" class="text-primary w-full" @click="setTheme('dim')">
+              <div>
+                <span class="text-base">Dim</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="nord" class="text-primary w-full" @click="setTheme('nord')">
+              <div>
+                <span class="text-base">Nord</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+            <li data-theme="sunset" class="text-primary w-full" @click="setTheme('sunset')">
+              <div>
+                <span class="text-base">Sunset</span>
+
+                <div class="flex gap-2 justify-end">
+                  <div class="w-2 bg-primary">&nbsp</div>
+                  <div class="w-2 bg-secondary">&nbsp</div>
+                  <div class="w-2 bg-accent">&nbsp</div>
+                  <div class="w-2 bg-neutral">&nbsp</div>
+                  <div class="w-2 bg-info">&nbsp</div>
+                  <div class="w-2 bg-success">&nbsp</div>
+                  <div class="w-2 bg-warning">&nbsp</div>
+                  <div class="w-2 bg-error">&nbsp</div>
+                </div>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+        <!--        <a class="btn">Button</a>-->
+      </div>
+    </div>
+    <!--    <header class="shadow-xl">-->
+    <!--      <nav>-->
+    <!--        <div class="navbar bg-base-100">-->
+    <!--          <div class="navbar-start">-->
+    <!--            <div class="dropdown">-->
+    <!--              <div tabindex="0" role="button" class="btn btn-ghost btn-circle">-->
+    <!--                <svg-->
+    <!--                    xmlns="http://www.w3.org/2000/svg"-->
+    <!--                    class="h-5 w-5"-->
+    <!--                    fill="none"-->
+    <!--                    viewBox="0 0 24 24"-->
+    <!--                    stroke="currentColor">-->
+    <!--                  <path-->
+    <!--                      stroke-linecap="round"-->
+    <!--                      stroke-linejoin="round"-->
+    <!--                      stroke-width="2"-->
+    <!--                      d="M4 6h16M4 12h16M4 18h7"/>-->
+    <!--                </svg>-->
+    <!--              </div>-->
+    <!--              <ul-->
+    <!--                  tabindex="0"-->
+    <!--                  class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">-->
+    <!--                <li><a>Homepage</a></li>-->
+    <!--                <li><a>Portfolio</a></li>-->
+    <!--                <li><a>About</a></li>-->
+    <!--              </ul>-->
+    <!--            </div>-->
+    <!--          </div>-->
+    <!--          <div class="navbar-center">-->
+    <!--            <a class="btn btn-ghost text-xl">Website template</a>-->
+    <!--          </div>-->
+    <!--          <div class="navbar-end">-->
+    <!--            <button class="btn btn-ghost btn-circle">-->
+    <!--              <svg-->
+    <!--                  xmlns="http://www.w3.org/2000/svg"-->
+    <!--                  class="h-5 w-5"-->
+    <!--                  fill="none"-->
+    <!--                  viewBox="0 0 24 24"-->
+    <!--                  stroke="currentColor">-->
+    <!--                <path-->
+    <!--                    stroke-linecap="round"-->
+    <!--                    stroke-linejoin="round"-->
+    <!--                    stroke-width="2"-->
+    <!--                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>-->
+    <!--              </svg>-->
+    <!--            </button>-->
+    <!--            <button class="btn btn-ghost btn-circle">-->
+    <!--              <div class="indicator">-->
+    <!--                <svg-->
+    <!--                    xmlns="http://www.w3.org/2000/svg"-->
+    <!--                    class="h-5 w-5"-->
+    <!--                    fill="none"-->
+    <!--                    viewBox="0 0 24 24"-->
+    <!--                    stroke="currentColor">-->
+    <!--                  <path-->
+    <!--                      stroke-linecap="round"-->
+    <!--                      stroke-linejoin="round"-->
+    <!--                      stroke-width="2"-->
+    <!--                      d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>-->
+    <!--                </svg>-->
+    <!--                <span class="badge badge-xs badge-primary indicator-item"></span>-->
+    <!--              </div>-->
+    <!--            </button>-->
+    <!--          </div>-->
+    <!--        </div>-->
+    <!--      </nav>-->
+    <!--    </header>-->
     <main class="flex flex-grow">
       <slot/>
 
