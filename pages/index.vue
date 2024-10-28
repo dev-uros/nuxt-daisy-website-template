@@ -21,9 +21,9 @@
             quasi. In deleniti eaque aut repudiandae et a id nisi.
           </p>
           <div class="flex gap-4 justify-evenly rounded-md border-2 p-7">
-            <button class="btn btn-secondary">Services</button>
+            <NuxtLink to="/services" class="btn btn-secondary">Services</NuxtLink>
 
-            <button class="btn btn-primary">Products</button>
+            <NuxtLink to="/products" class="btn btn-primary">Products</NuxtLink>
           </div>
         </div>
       </div>
