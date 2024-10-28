@@ -47,12 +47,12 @@ const setTheme = (theme: string) => {
       </div>
       <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal px-1">
-          <li><NuxtLink to="/about">About Us</NuxtLink></li>
-          <li><NuxtLink to="/services">Services</NuxtLink></li>
-          <li><NuxtLink to="/products">Products</NuxtLink></li>
-          <li><NuxtLink to="/blog">Blog</NuxtLink></li>
-          <li><NuxtLink to="/faq">FAQ</NuxtLink></li>
-          <li><NuxtLink to="/contact">Contact</NuxtLink></li>
+          <li><NuxtLink to="/about" active-class="text-primary">About Us</NuxtLink></li>
+          <li><NuxtLink to="/services" active-class="text-primary">Services</NuxtLink></li>
+          <li><NuxtLink to="/products" active-class="text-primary">Products</NuxtLink></li>
+          <li><NuxtLink to="/blog" active-class="text-primary">Blog</NuxtLink></li>
+          <li><NuxtLink to="/faq" active-class="text-primary">FAQ</NuxtLink></li>
+          <li><NuxtLink to="/contact" active-class="text-primary">Contact</NuxtLink></li>
 
         </ul>
       </div>
