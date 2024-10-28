@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import BlogIcon from "~/components/icons/BlogIcon.vue";
+import NewsLetterIcon from "~/components/icons/NewsLetterIcon.vue";
 
 const currentPage = ref(1);
 
@@ -31,7 +32,9 @@ const setPreviousPage = () => {
         <BlogIcon/>
         <h1>Blog</h1>
       </div>
+
       <div class="card-body flex flex-col">
+
         <div v-show="currentPage === 1" class="card lg:card-side bg-base-100 shadow-xl">
           <figure>
             <img
@@ -176,6 +179,28 @@ const setPreviousPage = () => {
         <div class="join grid grid-cols-2 mt-4">
           <button class="join-item btn btn-outline" @click="setPreviousPage">Previous page</button>
           <button class="join-item btn btn-outline" @click="setNextPage">Next</button>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center gap-6">
+        <!-- Header -->
+        <div class="flex flex-col gap-2 items-center text-center">
+          <div class="flex flex-row gap-2">
+            <NewsLetterIcon class="text-secondary"/>
+            <h1 class="text-2xl font-bold">
+              Sign up to our newsletter
+            </h1>
+          </div>
+
+
+          <span>Get weekly access to our best deals, tips and tricks</span>
+        </div>
+
+        <!-- Input field -->
+        <div class="flex gap-2">
+          <input type="email" class="input input-bordered" placeholder="Enter your email"/>
+
+          <button class="btn btn-primary">Subscribe</button>
         </div>
       </div>
     </div>
