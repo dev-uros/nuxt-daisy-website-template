@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import BlogIcon from "~/components/icons/BlogIcon.vue";
 
-const pages = [1,2];
 const currentPage = ref(1);
 
 const setNextPage = () => {
@@ -33,7 +32,7 @@ const setPreviousPage = () => {
         <h1>Blog</h1>
       </div>
       <div class="card-body flex flex-col">
-        <div v-show="currentPage === 1" class="card card-side bg-base-100 shadow-xl">
+        <div v-show="currentPage === 1" class="card lg:card-side bg-base-100 shadow-xl">
           <figure>
             <img
                 src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
@@ -60,7 +59,7 @@ const setPreviousPage = () => {
             </div>
           </div>
         </div>
-        <div v-show="currentPage === 1" class="card card-side bg-base-100 shadow-xl">
+        <div v-show="currentPage === 1" class="card lg:card-side bg-base-100 shadow-xl">
           <div class="card-body">
             <h1 class="card-title">Blog post #4</h1>
             <div class="divider"></div>
@@ -89,7 +88,7 @@ const setPreviousPage = () => {
           </figure>
 
         </div>
-        <div v-show="currentPage === 1" class="card card-side bg-base-100 shadow-xl">
+        <div v-show="currentPage === 1" class="card lg:card-side bg-base-100 shadow-xl">
           <figure>
             <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnqZ5UR5Ro1RPLliHBllhjQPw7JFujks_TGg&s"
@@ -117,7 +116,7 @@ const setPreviousPage = () => {
             </div>
           </div>
         </div>
-        <div v-show="currentPage === 2" class="card card-side bg-base-100 shadow-xl">
+        <div v-show="currentPage === 2" class="card lg:card-side bg-base-100 shadow-xl">
           <figure>
             <img
                 src="https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84273b481181a8e042321dbf7c"
@@ -145,7 +144,7 @@ const setPreviousPage = () => {
             </div>
           </div>
         </div>
-        <div v-show="currentPage === 2" class="card card-side bg-base-100 shadow-xl">
+        <div v-show="currentPage === 2" class="card lg:card-side bg-base-100 shadow-xl">
           <figure>
             <img
                 src="https://www.photomural.com/media/catalog/product/cache/2/thumbnail/9df78eab33525d08d6e5fb8d27136e95/I/A/IADX5-060.jpg"
