@@ -1,75 +1,27 @@
-# Nuxt 3 Minimal Starter
+# PROJECT SETUP
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## * BEFORE START
 
-## Setup
+- It is required to have `Docker` and `Make command` installed.
 
-Make sure to install the dependencies:
+### Project initialization
 
-```bash
-# npm
-npm install
+1. Fork/clone this repository
+2. Run the following command: `make init`
 
-# pnpm
-pnpm install
+Running `make init` command will make following prompts:
 
-# yarn
-yarn install
+- Enter project name (required): *this represents the name of the project eg: My Project Frontend*
+- Enter webserver container name (required): *this represents the name of docker container that will be built*
+- Select websocket server status (1. true, 2. false): *this indicates should components that require websocket connects (eg: Chat) be loaded in application*
 
-# bun
-bun install
-```
+After prompts above are entered, .env file will be generated inside of src directory (base on .env.local), docker container will be built and application will be available at http://localhost:9000  
 
-## Development Server
 
-Start the development server on `http://localhost:3000`:
+### Additional information
 
-```bash
-# npm
-npm run dev
+1. Command `make up` brings the docker container up and running
+2. Command `make down` shuts the docker container down
+3. Command `make webserver` enters the docker container terminal (*use this for npm/quasar commands eg: npm install...*)
 
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+**When finished with developing run make down!**
